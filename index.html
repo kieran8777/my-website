@@ -52,7 +52,6 @@
       opacity: 0.9;
     }
 
-    /* 快捷功能按鈕列 */
     .action-bar {
       display: flex;
       justify-content: center;
@@ -85,7 +84,6 @@
       padding: 0 16px;
     }
 
-    /* 天氣組件 */
     .weather-widget {
       background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
       color: white;
@@ -178,7 +176,6 @@
       color: #7d6608;
     }
 
-    /* Tabs 導覽列 */
     .tab-container {
       display: flex;
       overflow-x: auto;
@@ -219,7 +216,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 行程項目卡片 */
     .timeline {
       position: relative;
       padding-left: 20px;
@@ -465,7 +461,6 @@
       gap: 6px;
     }
 
-    /* 列印友善設定 */
     @media print {
       body { background: white; color: black; padding-bottom: 0; }
       header, .action-bar, .tab-container, .weather-widget, .calc-card, .map-btn, .alert-banner { display: none !important; }
@@ -480,7 +475,6 @@
     <h1>瀨戶內海家族奢華五日遊 ✈️🇯🇵🌊</h1>
     <p>9/30 - 10/4 ｜ 家族專屬智慧互動手冊</p>
     
-    <!-- 快捷按鈕列 -->
     <div class="action-bar">
       <button class="action-btn" onclick="shareTrip()"><i class="fa-solid fa-share-nodes"></i> 一鍵分享</button>
       <button class="action-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> 匯出 PDF / 列印</button>
@@ -528,8 +522,8 @@
 
     <!-- 準時提醒 -->
     <div class="alert-banner">
-      <strong>⚠️ 每日「發車」時間 09:00（是出發不是集合）</strong>[cite: 1]<br>
-      Ps. 遲到的晚餐就給你請囉，謝謝老闆[cite: 1]。🚗 包車行李空間最多 15 大，多餘建議帶行李袋[cite: 1]。
+      <strong>⚠️ 每日「發車」時間 09:00（是出發不是集合）</strong><br>
+      Ps. 遲到的晚餐就給你請囉，謝謝老闆。🚗 包車行李空間最多 15 大，多餘建議帶行李袋。
     </div>
 
   </div>
@@ -558,27 +552,27 @@
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d1_flight" onchange="toggleDone(this)">
-            <span class="event-title">星宇啟航！直奔神隱少女溫泉鄉[cite: 1]</span>
+            <span class="event-title">星宇啟航！直奔神隱少女溫泉鄉</span>
           </label>
           <div class="event-body">
-            <p>07:00 臺中機場國際線 Check-in[cite: 1]。</p>
-            <p>08:40 星宇航空 JX300 起飛，預計 12:20 抵達高松機場[cite: 1]。</p>
+            <p>07:00 臺中機場國際線 Check-in。</p>
+            <p>08:40 星宇航空 JX300 起飛，預計 12:20 抵達高松機場。</p>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-trans">專車接送</span>
-            <span class="event-time">下午 (車程約 2 小時)</span>[cite: 1]
+            <span class="event-time">下午 (車程約 2 小時)</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d1_transfer" onchange="toggleDone(this)">
-            <span class="event-title">專車接送直奔松山道後[cite: 1]</span>
+            <span class="event-title">專車接送直奔松山道後</span>
           </label>
           <div class="event-body">
-            <p>中途下車尿尿 + 買小東西上車吃 (15mins)[cite: 1]。</p>
+            <p>中途下車尿尿 + 買小東西上車吃 (15mins)。</p>
           </div>
-          <a href="https://maps.app.goo.gl/cFCJxCraEJU25jQN8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 休息點地圖</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/cFCJxCraEJU25jQN8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 休息點地圖</a>
         </div>
 
         <div class="event-card">
@@ -588,10 +582,10 @@
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d1_dogo" onchange="toggleDone(this)">
-            <span class="event-title">道後溫泉本館（Dōgo Onsen Honkan）＆ 溫泉街[cite: 1]</span>
+            <span class="event-title">道後溫泉本館（Dōgo Onsen Honkan）＆ 溫泉街</span>
           </label>
           <div class="event-body">
-            <p>抵達後先至溫泉旅館放置行李[cite: 1]。牽著長輩與孩子漫步道後溫泉本館，百年木造《神隱少女》油屋原型大合照[cite: 1]！</p>
+            <p>抵達後先至溫泉旅館放置行李。牽著長輩與孩子漫步道後溫泉本館，百年木造《神隱少女》油屋原型大合照！</p>
             
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 道後溫泉街必吃美食推薦：</div>
@@ -606,30 +600,30 @@
               • <strong>愛媛蜜柑果醬 / 蜜柑酒</strong>：香氣濃郁的在地限定伴手禮。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/5iaoHXktjowxoGCNA?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 道後溫泉本館</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/5iaoHXktjowxoGCNA?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 道後溫泉本館</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-food">精緻美饌</span>
-            <span class="event-time">18:00</span>[cite: 1]
+            <span class="event-time">18:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d1_dinner" onchange="toggleDone(this)">
-            <span class="event-title">溫泉旅館內享用「會席料理」[cite: 1]</span>
+            <span class="event-title">溫泉旅館內享用「會席料理」</span>
           </label>
           <div class="event-body">
-            <p>在旅館內享用精緻瀨戶內海海鮮與愛媛名產「鯛魚飯（たいめし）」，附專屬兒童餐[cite: 1]。</p>
+            <p>在旅館內享用精緻瀨戶內海海鮮與愛媛名產「鯛魚飯（たいめし）」，附專屬兒童餐。</p>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-hotel">精選住宿</span>
-            <span class="event-time">住宿推薦</span>[cite: 1]
+            <span class="event-time">住宿推薦</span>
           </div>
-          <div class="event-title">ホテル古湧園遥[cite: 1]</div>
-          <a href="https://maps.app.goo.gl/rGhd4T5EajMqsxyX6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>[cite: 1]
+          <div class="event-title">ホテル古湧園遥</div>
+          <a href="https://maps.app.goo.gl/rGhd4T5EajMqsxyX6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>
         </div>
       </div>
     </div>
@@ -640,60 +634,60 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-spot">名城巡禮</span>
-            <span class="event-time">09:00 - 12:00</span>[cite: 1]
+            <span class="event-time">09:00 - 12:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d2_castle" onchange="toggleDone(this)">
-            <span class="event-title">松山城（Matsuyama-jō）[cite: 1]</span>
+            <span class="event-title">松山城（Matsuyama-jō）</span>
           </label>
           <div class="event-body">
-            <p>搭乘「單人空中索道椅（Lifts）」或纜車上山[cite: 1]。日本僅存 12 現存天守之一，遠眺瀨戶內海[cite: 1]。</p>
+            <p>搭乘「單人空中索道椅（Lifts）」或纜車上山。日本僅存 12 現存天守之一，遠眺瀨戶內海。</p>
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 松山城山頂必吃：</div>
               • <strong>伊予柑霜淇淋</strong>：山頂本丸廣場小憩時必嚐，果香微酸消暑。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/RABU1XzVV2QDEXWq8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 松山城位置</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/RABU1XzVV2QDEXWq8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 松山城位置</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-trans">景觀大橋</span>
-            <span class="event-time">12:15 - 16:00</span>[cite: 1]
+            <span class="event-time">12:15 - 16:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d2_bridge" onchange="toggleDone(this)">
-            <span class="event-title">島波海道大縱走 ＆ 來島海峽休息站[cite: 1]</span>
+            <span class="event-title">島波海道大縱走 ＆ 來島海峽休息站</span>
           </label>
           <div class="event-body">
-            <p>專車行駛自行車聖地「島波海道」，車程約 2.5 - 3 小時[cite: 1]。於來島海峽休息站停留 40 分鐘簡易覓食[cite: 1]。</p>
+            <p>專車行駛自行車聖地「島波海道」，車程約 2.5 - 3 小時。於來島海峽休息站停留 40 分鐘簡易覓食。</p>
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 來島海峽休息站推薦：</div>
               • <strong>伯方之鹽霜淇淋</strong>：鹹甜交織極具特色的海鹽冰淇淋。<br>
               • <strong>今治特色叉燒半熟蛋飯 / 炸章魚天婦羅</strong>：快速便利又美味的熟食點心。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/vWwrX2Lb9P2H5smS6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 來島海峽休息站</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/vWwrX2Lb9P2H5smS6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 來島海峽休息站</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-food">家族聚餐</span>
-            <span class="event-time">20:00</span>[cite: 1]
+            <span class="event-time">20:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d2_bbq" onchange="toggleDone(this)">
-            <span class="event-title">包廂燒肉晚餐（杰結帳 👑）[cite: 1]</span>
+            <span class="event-title">包廂燒肉晚餐（杰結帳 👑）</span>
           </label>
           <div class="event-body">
-            <p>方便女士購物行程～小孩部分請先於便利商店餵飽[cite: 1]。</p>
+            <p>方便女士購物行程～小孩部分請先於便利商店餵飽。</p>
             <div class="recommend-box recommend-shop">
               <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 廣島八丁堀商圈購物推薦：</div>
               • <strong>福屋百貨 / PARCO</strong>：日系品牌服飾、化妝品專櫃聚集地。<br>
               • <strong>唐吉訶德 廣島八丁堀店</strong>：營業至深夜，採購日本零食、藥妝超齊全。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/EzxH5DC9g4diswvd6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 餐廳位置</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/EzxH5DC9g4diswvd6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 餐廳位置</a>
         </div>
 
         <div class="event-card">
@@ -701,8 +695,8 @@
             <span class="event-tag tag-hotel">精選住宿</span>
             <span class="event-time">連住兩晚</span>
           </div>
-          <div class="event-title">CANDEO HOTELS Hiroshima Hatchobori[cite: 1]</div>
-          <a href="https://maps.app.goo.gl/DuQSHhntHFmHjzs17?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>[cite: 1]
+          <div class="event-title">CANDEO HOTELS Hiroshima Hatchobori</div>
+          <a href="https://maps.app.goo.gl/DuQSHhntHFmHjzs17?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>
         </div>
       </div>
     </div>
@@ -713,33 +707,33 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-spot">世界遺產</span>
-            <span class="event-time">09:00 - 12:30</span>[cite: 1]
+            <span class="event-time">09:00 - 12:30</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d3_shrine" onchange="toggleDone(this)">
-            <span class="event-title">宮島・嚴島神社（Itsukushima Jinja）[cite: 1]</span>
+            <span class="event-title">宮島・嚴島神社（Itsukushima Jinja）</span>
           </label>
           <div class="event-body">
-            <p>專車至宮島口碼頭搭渡輪前往[cite: 1]。看海上大鳥居與溫和宮島小鹿[cite: 1]。</p>
+            <p>專車至宮島口碼頭搭渡輪前往。看海上大鳥居與溫和宮島小鹿。</p>
           </div>
-          <a href="https://maps.app.goo.gl/AqmRWjP7bNddgaFe6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 宮島渡輪碼頭</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/AqmRWjP7bNddgaFe6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 宮島渡輪碼頭</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-food">在地午餐</span>
-            <span class="event-time">12:30 - 14:00</span>[cite: 1]
+            <span class="event-time">12:30 - 14:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d3_lunch" onchange="toggleDone(this)">
-            <span class="event-title">宮島表參道商店街美食＆採買[cite: 1]</span>
+            <span class="event-title">宮島表參道商店街美食＆採買</span>
           </label>
           <div class="event-body">
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 宮島必吃名物：</div>
-              • <strong>まめたぬき (Mametanuki)</strong>：陶罐烤星鰻飯，醬香濃郁肉質細嫩[cite: 1]。<br>
+              • <strong>まめたぬき (Mametanuki)</strong>：陶罐烤星鰻飯，醬香濃郁肉質細嫩。<br>
               • <strong>現烤廣島牡蠣</strong>：大顆飽滿多汁，可選檸檬汁或醬油燒烤。<br>
-              • <strong>紅葉堂「炸紅葉饅頭 (揚げもみじ)」</strong>：外皮酥脆內餡綿密，推薦紅豆、卡士達口味[cite: 1]。<br>
+              • <strong>紅葉堂「炸紅葉饅頭 (揚げもみじ)」</strong>：外皮酥脆內餡綿密，推薦紅豆、卡士達口味。<br>
               • <strong>宮島特色「牡蠣咖哩麵包」</strong>：整顆大牡蠣包入濃郁咖哩內餡。
             </div>
 
@@ -754,35 +748,35 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-spot">歷史和平</span>
-            <span class="event-time">14:30 - 17:30</span>[cite: 1]
+            <span class="event-time">14:30 - 17:30</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d3_peace" onchange="toggleDone(this)">
-            <span class="event-title">廣島和平紀念公園・原爆圓頂館＋紙鶴塔[cite: 1]</span>
+            <span class="event-title">廣島和平紀念公園・原爆圓頂館＋紙鶴塔</span>
           </label>
           <div class="event-body">
-            <p>歷史教育景點，紙鶴塔頂樓可俯瞰全景並體驗投下祈福紙鶴[cite: 1]。</p>
+            <p>歷史教育景點，紙鶴塔頂樓可俯瞰全景並體驗投下祈福紙鶴。</p>
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 紙鶴塔 1 樓商場推薦：</div>
               • <strong>SOUVENIR SELECT 人氣伴手禮店</strong>：集合廣島各大名產（廣島檸檬蛋糕、瀨戶內檸檬花枝脆片）。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/zMvSYn5BWE6187FA6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 紙鶴塔位置</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/zMvSYn5BWE6187FA6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 紙鶴塔位置</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-spot">購物與晚餐</span>
-            <span class="event-time">晚上</span>[cite: 1]
+            <span class="event-time">晚上</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d3_night" onchange="toggleDone(this)">
-            <span class="event-title">紙屋町/本通商店街 自由採購 ＆ 晚餐[cite: 1]</span>
+            <span class="event-title">紙屋町/本通商店街 自由採購 ＆ 晚餐</span>
           </label>
           <div class="event-body">
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 晚餐推薦（自由覓食）：</div>
-              • <strong>廣島燒村（お好み村）</strong>：集結數十家道地廣島燒老店（推薦「八昌」、「麗ちゃん」），滿滿高麗菜、炒麵與廣島牡蠣煎炒，香氣逼人[cite: 1]！
+              • <strong>廣島燒村（お好み村）</strong>：集結數十家道地廣島燒老店（推薦「八昌」、「麗ちゃん」），滿滿高麗菜、炒麵與廣島牡蠣煎炒，香氣逼人！
             </div>
 
             <div class="recommend-box recommend-shop">
@@ -791,7 +785,7 @@
               • <strong>Calbee 廣島限定沾汁沾麵風味蝦味先</strong>。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/2FJpcscudvFiZSLn7?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/2FJpcscudvFiZSLn7?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>
         </div>
       </div>
     </div>
@@ -802,40 +796,40 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-spot">文青山城</span>
-            <span class="event-time">09:00 - 12:30</span>[cite: 1]
+            <span class="event-time">09:00 - 12:30</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d4_onomichi" onchange="toggleDone(this)">
-            <span class="event-title">廣島出發 \ 尾道（Onomichi）千光寺文青散策[cite: 1]</span>
+            <span class="event-title">廣島出發 \ 尾道（Onomichi）千光寺文青散策</span>
           </label>
           <div class="event-body">
-            <p>搭乘千光寺纜車俯瞰水道，下山漫步貓之細道[cite: 1]。</p>
+            <p>搭乘千光寺纜車俯瞰水道，下山漫步貓之細道。</p>
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 尾道必吃文青甜點：</div>
               • <strong>尾道布丁（おやつとやまねこ）</strong>：復古牛奶瓶裝布丁，淋上瀨戶內檸檬特製糖漿。<br>
-              • <strong>貓之細道 特色麵包店（ネコノテパン工場）</strong>：超隱密的可愛迷你麵包工坊[cite: 1]。
+              • <strong>貓之細道 特色麵包店（ネコノテパン工場）</strong>：超隱密的可愛迷你麵包工坊。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/8jETGSetLPNBPuSd8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 千光寺纜車</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/8jETGSetLPNBPuSd8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 千光寺纜車</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-food">在地午餐</span>
-            <span class="event-time">12:00 - 13:00</span>[cite: 1]
+            <span class="event-time">12:00 - 13:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d4_ramen" onchange="toggleDone(this)">
-            <span class="event-title">午餐自由覓食：尾道拉麵 / 尾道 WHARF[cite: 1]</span>
+            <span class="event-title">午餐自由覓食：尾道拉麵 / 尾道 WHARF</span>
           </label>
           <div class="event-body">
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 尾道午餐精選：</div>
-              • <strong>尾道拉麵（如：朱華園系或喰海）</strong>：以小魚乾熬製高湯、加入背脂醬油的道地風味[cite: 1]。<br>
-              • <strong>尾道 WHARF</strong>：港邊海鮮、生蠔與西式輕食料理[cite: 1]。
+              • <strong>尾道拉麵（如：朱華園系或喰海）</strong>：以小魚乾熬製高湯、加入背脂醬油的道地風味。<br>
+              • <strong>尾道 WHARF</strong>：港邊海鮮、生蠔與西式輕食料理。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/GNciG2syz6NS54QT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 尾道 WHARF</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/GNciG2syz6NS54QT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 尾道 WHARF</a>
         </div>
 
         <div class="event-card">
@@ -845,55 +839,55 @@
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d4_kurashiki" onchange="toggleDone(this)">
-            <span class="event-title">倉敷美觀地區 ＆ 兒島丹寧街[cite: 1]</span>
+            <span class="event-title">倉敷美觀地區 ＆ 兒島丹寧街</span>
           </label>
           <div class="event-body">
-            <p>白壁宅邸、黑瓦與垂柳散策，可體驗人力遊船與特色街區[cite: 1]。</p>
+            <p>白壁宅邸、黑瓦與垂柳散策，可體驗人力遊船與特色街區。</p>
             
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 倉敷特色打卡美食：</div>
-              • <strong>丹寧藍色肉包＆藍色霜淇淋</strong>：拍照打卡人氣第一名，小孩超愛[cite: 1]！<br>
+              • <strong>丹寧藍色肉包＆藍色霜淇淋</strong>：拍照打卡人氣第一名，小孩超愛！<br>
               • <strong>岡山白桃/麝香葡萄水果聖代（くらしき桃子）</strong>：奢華鋪滿當季頂級岡山水果。
             </div>
 
             <div class="recommend-box recommend-shop">
               <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 倉敷美觀必買推薦：</div>
-              • <strong>倉敷兒島丹寧（牛仔布）製品</strong>：丹寧包包、帽子、圍裙，耐用且極具質感[cite: 1]。<br>
+              • <strong>倉敷兒島丹寧（牛仔布）製品</strong>：丹寧包包、帽子、圍裙，耐用且極具質感。<br>
               • <strong>mt 紙膠帶（如竹堂）</strong>：日本紙膠帶發源地，文具控必買伴手禮。<br>
               • <strong>岡山白桃果凍 / 晴王麝香葡萄夾心餅乾</strong>。
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/wr7DnhmdsC5LgLeq5?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 倉敷美觀地區</a>[cite: 1]
+          <a href="https://maps.app.goo.gl/wr7DnhmdsC5LgLeq5?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 倉敷美觀地區</a>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-trans">跨海夕陽</span>
-            <span class="event-time">17:00 - 18:30</span>[cite: 1]
+            <span class="event-time">17:00 - 18:30</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d4_sunset" onchange="toggleDone(this)">
-            <span class="event-title">跨越壯麗「瀨戶大橋」\ 抵達香川高松[cite: 1]</span>
+            <span class="event-title">跨越壯麗「瀨戶大橋」\ 抵達香川高松</span>
           </label>
           <div class="event-body">
-            <p>行駛瀨戶中央自動車道，黃昏時刻在橋上欣賞瀨戶內海落日[cite: 1]。</p>
+            <p>行駛瀨戶中央自動車道，黃昏時刻在橋上欣賞瀨戶內海落日。</p>
           </div>
         </div>
 
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-food">香川名物</span>
-            <span class="event-time">19:00</span>[cite: 1]
+            <span class="event-time">19:00</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d4_dinner" onchange="toggleDone(this)">
-            <span class="event-title">高松商店街晚餐：骨付鳥 或 讚岐烏龍麵[cite: 1]</span>
+            <span class="event-title">高松商店街晚餐：骨付鳥 或 讚岐烏龍麵</span>
           </label>
           <div class="event-body">
             <div class="recommend-box recommend-food">
               <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 高松必吃名物推薦：</div>
-              • <strong>骨付鳥 一鶴（Ikkaku）</strong>：香川靈魂美食！大蒜胡椒醃製烤雞腿，分嫩雞（ひな）與嚼勁老雞（おや），配啤酒白飯一絕[cite: 1]！<br>
-              • <strong>手打讚岐烏龍麵（手打十段 うどんバカ一代）</strong>：招牌「奶油黑胡椒烏龍麵（釜バター）」，口感 Q 彈滑順[cite: 1]。
+              • <strong>骨付鳥 一鶴（Ikkaku）</strong>：香川靈魂美食！大蒜胡椒醃製烤雞腿，分嫩雞（ひな）與嚼勁老雞（おや），配啤酒白飯一絕！<br>
+              • <strong>手打讚岐烏龍麵（手打十段 うどんバカ一代）</strong>：招牌「奶油黑胡椒烏龍麵（釜バター）」，口感 Q 彈滑順。
             </div>
           </div>
         </div>
@@ -901,10 +895,10 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-hotel">精選住宿</span>
-            <span class="event-time">住宿推薦</span>[cite: 1]
+            <span class="event-time">住宿推薦</span>
           </div>
-          <div class="event-title">Daiwa Roynet Hotel Takamatsu[cite: 1]</div>
-          <a href="https://maps.app.goo.gl/7VyrBB446WwkS8nT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>[cite: 1]
+          <div class="event-title">Daiwa Roynet Hotel Takamatsu</div>
+          <a href="https://maps.app.goo.gl/7VyrBB446WwkS8nT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>
         </div>
       </div>
     </div>
@@ -915,11 +909,11 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-shop">最後採買</span>
-            <span class="event-time">09:00 - 10:30</span>[cite: 1]
+            <span class="event-time">09:00 - 10:30</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d5_shop" onchange="toggleDone(this)">
-            <span class="event-title">高松丸龜町商店街最後採買衝刺[cite: 1]</span>
+            <span class="event-title">高松丸龜町商店街最後採買衝刺</span>
           </label>
           <div class="event-body">
             <div class="recommend-box recommend-shop">
@@ -935,14 +929,14 @@
         <div class="event-card">
           <div class="event-header">
             <span class="event-tag tag-flight">搭機返台</span>
-            <span class="event-time">10:30 / 13:20</span>[cite: 1]
+            <span class="event-time">10:30 / 13:20</span>
           </div>
           <label class="checklist-item">
             <input type="checkbox" id="check_d5_flight" onchange="toggleDone(this)">
-            <span class="event-title">高松機場 ✈️ 星宇航空 JX301 返台[cite: 1]</span>
+            <span class="event-title">高松機場 ✈️ 星宇航空 JX301 返台</span>
           </label>
           <div class="event-body">
-            <p>10:30 前往機場，13:20 起飛返台，滿載而歸[cite: 1]！</p>
+            <p>10:30 前往機場，13:20 起飛返台，滿載而歸！</p>
           </div>
         </div>
       </div>
@@ -954,10 +948,10 @@
       
       <div class="guide-grid">
         <div class="guide-card">
-          <h3>🍊 愛媛・松山 / 道後溫泉[cite: 1]</h3>
+          <h3>🍊 愛媛・松山 / 道後溫泉</h3>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
-            <div class="guide-item-desc">• 宇和島鯛魚飯（生鯛魚片配蛋汁醬油）[cite: 1]<br>• 10 FACTORY 各品種蜜柑汁評比<br>• 少爺糰子、伊予柑霜淇淋</div>
+            <div class="guide-item-desc">• 宇和島鯛魚飯（生鯛魚片配蛋汁醬油）<br>• 10 FACTORY 各品種蜜柑汁評比<br>• 少爺糰子、伊予柑霜淇淋</div>
           </div>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
@@ -966,10 +960,10 @@
         </div>
 
         <div class="guide-card">
-          <h3>🦪 廣島市 ＆ 宮島[cite: 1]</h3>
+          <h3>🦪 廣島市 ＆ 宮島</h3>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
-            <div class="guide-item-desc">• 廣島燒（廣島燒村）、廣島炸生蠔[cite: 1]<br>• まめたぬき 陶罐烤星鰻飯[cite: 1]<br>• 現炸紅葉饅頭（紅葉堂）[cite: 1]</div>
+            <div class="guide-item-desc">• 廣島燒（廣島燒村）、廣島炸生蠔<br>• まめたぬき 陶罐烤星鰻飯<br>• 現炸紅葉饅頭（紅葉堂）</div>
           </div>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
@@ -978,22 +972,22 @@
         </div>
 
         <div class="guide-card">
-          <h3>🐈 尾道 ＆ 倉敷美觀[cite: 1]</h3>
+          <h3>🐈 尾道 ＆ 倉敷美觀</h3>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
-            <div class="guide-item-desc">• 尾道背脂小魚乾醬油拉麵[cite: 1]<br>• 尾道布丁（附檸檬糖漿）<br>• 兒島丹寧藍色肉包＆霜淇淋[cite: 1]<br>• 倉敷白桃/麝香葡萄聖代</div>
+            <div class="guide-item-desc">• 尾道背脂小魚乾醬油拉麵<br>• 尾道布丁（附檸檬糖漿）<br>• 兒島丹寧藍色肉包＆霜淇淋<br>• 倉敷白桃/麝香葡萄聖代</div>
           </div>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
-            <div class="guide-item-desc">• 倉敷兒島牛仔丹寧包包/配件[cite: 1]<br>• mt 倉敷和紙膠帶<br>• 岡山晴王麝香葡萄夾心餅乾</div>
+            <div class="guide-item-desc">• 倉敷兒島牛仔丹寧包包/配件<br>• mt 倉敷和紙膠帶<br>• 岡山晴王麝香葡萄夾心餅乾</div>
           </div>
         </div>
 
         <div class="guide-card">
-          <h3>🍜 香川・高松[cite: 1]</h3>
+          <h3>🍜 香川・高松</h3>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
-            <div class="guide-item-desc">• 手打讚岐烏龍麵（釜バター）[cite: 1]<br>• 骨付鳥 一鶴（蒜香多汁烤雞腿）[cite: 1]</div>
+            <div class="guide-item-desc">• 手打讚岐烏龍麵（釜バター）<br>• 骨付鳥 一鶴（蒜香多汁烤雞腿）</div>
           </div>
           <div class="guide-item">
             <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
@@ -1006,8 +1000,8 @@
     <!-- 門票試算 -->
     <div id="tickets" class="tab-content">
       <div class="table-container">
-        <h3 style="margin-bottom:10px; color:var(--primary);"><i class="fa-solid fa-ticket"></i> 景點票價參考一覽表[cite: 1]</h3>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">門票都現場買就好，買票的人決定何時跟大家收費 💰[cite: 1]</p>
+        <h3 style="margin-bottom:10px; color:var(--primary);"><i class="fa-solid fa-ticket"></i> 景點票價參考一覽表</h3>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">門票都現場買就好，買票的人決定何時跟大家收費 💰</p>
         <table>
           <thead>
             <tr>
@@ -1020,46 +1014,46 @@
           </thead>
           <tbody>
             <tr>
-              <td>D2 松山城索道椅/纜車來回[cite: 1]</td>
-              <td>小烏[cite: 1]</td>
-              <td>520 円[cite: 1]</td>
-              <td>260 円[cite: 1]</td>
-              <td>免費 (1大可帶2名)[cite: 1]</td>
+              <td>D2 松山城索道椅/纜車來回</td>
+              <td>小烏</td>
+              <td>520 円</td>
+              <td>260 円</td>
+              <td>免費 (1大可帶2名)</td>
             </tr>
             <tr>
-              <td>D2 松山城天守閣門票[cite: 1]</td>
-              <td>小烏[cite: 1]</td>
-              <td>520 円[cite: 1]</td>
-              <td>150 円[cite: 1]</td>
-              <td>免費[cite: 1]</td>
+              <td>D2 松山城天守閣門票</td>
+              <td>小烏</td>
+              <td>520 円</td>
+              <td>150 円</td>
+              <td>免費</td>
             </tr>
             <tr>
-              <td>D3 JR 宮島渡輪來回 (含訪問稅)[cite: 1]</td>
-              <td>良[cite: 1]</td>
-              <td>500 円[cite: 1]</td>
-              <td>200 円[cite: 1]</td>
-              <td>免費 (1大可帶2名)[cite: 1]</td>
+              <td>D3 JR 宮島渡輪來回 (含訪問稅)</td>
+              <td>良</td>
+              <td>500 円</td>
+              <td>200 円</td>
+              <td>免費 (1大可帶2名)</td>
             </tr>
             <tr>
-              <td>D3 嚴島神社參拜門票[cite: 1]</td>
-              <td>良[cite: 1]</td>
-              <td>300 円[cite: 1]</td>
-              <td>100 円 (中·小學)[cite: 1]</td>
-              <td>免費 (高中200円)[cite: 1]</td>
+              <td>D3 嚴島神社參拜門票</td>
+              <td>良</td>
+              <td>300 円</td>
+              <td>100 円 (中·小學)</td>
+              <td>免費 (高中200円)</td>
             </tr>
             <tr>
-              <td>D3 紙鶴塔 (15人以上團體門票)[cite: 1]</td>
-              <td>良[cite: 1]</td>
-              <td>2,100 円[cite: 1]</td>
-              <td>800 円[cite: 1]</td>
-              <td>500 円 (4歲以下)[cite: 1]</td>
+              <td>D3 紙鶴塔 (15人以上團體門票)</td>
+              <td>良</td>
+              <td>2,100 円</td>
+              <td>800 円</td>
+              <td>500 円 (4歲以下)</td>
             </tr>
             <tr>
-              <td>D4 尾道千光寺纜車來回[cite: 1]</td>
-              <td>Fly[cite: 1]</td>
-              <td>700 円[cite: 1]</td>
-              <td>350 円[cite: 1]</td>
-              <td>免費 (1大可帶1名)[cite: 1]</td>
+              <td>D4 尾道千光寺纜車來回</td>
+              <td>Fly</td>
+              <td>700 円</td>
+              <td>350 円</td>
+              <td>免費 (1大可帶1名)</td>
             </tr>
           </tbody>
         </table>
@@ -1096,34 +1090,33 @@
     <div id="tips" class="tab-content">
       <div class="info-card">
         <h3><i class="fa-solid fa-utensils"></i> 1. 餐廳包廂預約</h3>
-        <p>18 人的大團體在日本是不可能現場排隊進餐廳的（尤其是熱門拉麵店或燒肉）[cite: 1]。第一晚的溫泉旅館一定要連同晚餐一起訂；其餘午晚餐務必請包車公司或透過信用卡祕書提早預約包廂（個室），或分拆成 3 張 6 人桌[cite: 1]。</p>
+        <p>18 人的大團體在日本是不可能現場排隊進餐廳的（尤其是熱門拉麵店或燒肉）。第一晚的溫泉旅館一定要連同晚餐一起訂；其餘午晚餐務必請包車公司或透過信用卡祕書提早預約包廂（個室），或分拆成 3 張 6 人桌。</p>
       </div>
 
       <div class="info-card">
         <h3><i class="fa-solid fa-wheelchair"></i> 2. 推車與無障礙建議</h3>
-        <p>尾道的「貓之細道」與松山城天守閣內部階梯較陡，若有行動不便的長輩，尾道段建議在山頂展望台與山腳商店街活動即可，避免走中間的陡峭石階[cite: 1]。</p>
+        <p>尾道的「貓之細道」與松山城天守閣內部階梯較陡，若有行動不便的長輩，尾道段建議在山頂展望台與山腳商店街活動即可，避免走中間的陡峭石階。</p>
       </div>
 
       <div class="info-card">
         <h3><i class="fa-solid fa-water"></i> 3. 宮島潮汐查詢</h3>
-        <p>去嚴島神社前，可以先上網查當天的「潮汐表」[cite: 1]。如果剛好遇到退潮，全家人還可以一起走到大鳥居的腳底下摸摸它喔[cite: 1]！</p>
+        <p>去嚴島神社前，可以先上網查當天的「潮汐表」。如果剛好遇到退潮，全家人還可以一起走到大鳥居的腳底下摸摸它喔！</p>
       </div>
 
       <div class="info-card">
         <h3><i class="fa-solid fa-id-card"></i> 4. 交通票券與隨身卡片</h3>
-        <p>因全程包車，市區內無須購買 JR Pass[cite: 1]。導遊隨車移動，每人只需準備一張 ICOCA / Suica（西瓜卡），方便自由活動或超商買東西使用[cite: 1]。</p>
+        <p>因全程包車，市區內無須購買 JR Pass。導遊隨車移動，每人只需準備一張 ICOCA / Suica（西瓜卡），方便自由活動或超商買東西使用。</p>
       </div>
 
       <div class="info-card">
         <h3><i class="fa-solid fa-shirt"></i> 5. 穿著建議（9/30 - 10/4）</h3>
-        <p>正值初秋，白天氣溫舒適（約 20°C - 25°C），但海風較大，且道後溫泉與山上（如松山城）早晚溫差明顯[cite: 1]。建議採洋蔥式穿搭（短袖/薄長袖 + 防風薄外套），並準備好走的休閒鞋[cite: 1]。</p>
+        <p>正值初秋，白天氣溫舒適（約 20°C - 25°C），但海風較大，且道後溫泉與山上（如松山城）早晚溫差明顯。建議採洋蔥式穿搭（短袖/薄長袖 + 防風薄外套），並準備好走的休閒鞋。</p>
       </div>
     </div>
 
   </div>
 
   <script>
-    // 城市座標設定
     const CITIES = {
       matsuyama: { name: '松山 (道後溫泉)', lat: 33.8392, lon: 132.7656 },
       hiroshima: { name: '廣島市中心', lat: 34.3853, lon: 132.4553 },
@@ -1197,7 +1190,6 @@
       event.currentTarget.classList.add('active');
     }
 
-    // 打卡進度儲存 (LocalStorage)
     function toggleDone(checkbox) {
       const parent = checkbox.closest('.checklist-item');
       if (checkbox.checked) {
@@ -1243,7 +1235,6 @@
       }
     }
 
-    // 一鍵分享
     function shareTrip() {
       if (navigator.share) {
         navigator.share({
