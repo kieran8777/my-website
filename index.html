@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瀨戶內海家族奢華五日遊✈️🇯🇵🌊</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a5276;
+      --primary-light: #2980b9;
+      --accent: #d4ac0d;
+      --bg: #f4f7f9;
+      --card-bg: #ffffff;
+      --text: #2c3e50;
+      --text-muted: #7f8c8d;
+      --border: #e2e8f0;
+      --food-color: #e67e22;
+      --shop-color: #8e44ad;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #154360, #2980b9);
+      color: white;
+      text-align: center;
+      padding: 24px 16px 16px;
+    }
+
+    header h1 {
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* 快捷功能按鈕列 */
+    .action-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.2s;
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .main-container {
+      max-width: 900px;
+      margin: 16px auto;
+      padding: 0 16px;
+    }
+
+    /* 天氣組件 */
+    .weather-widget {
+      background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .weather-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .weather-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .weather-refresh {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .weather-cities {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .weather-cities::-webkit-scrollbar { display: none; }
+
+    .city-chip {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .city-chip.active {
+      background: white;
+      color: #2b5876;
+      font-weight: 700;
+    }
+
+    .weather-detail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+
+    .weather-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .weather-icon-large { font-size: 2.2rem; }
+    .weather-temp { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .weather-desc { font-size: 0.85rem; opacity: 0.9; }
+    .weather-sub { text-align: right; font-size: 0.8rem; opacity: 0.9; }
+
+    .alert-banner {
+      background-color: #fef9e7;
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #7d6608;
+    }
+
+    /* Tabs 導覽列 */
+    .tab-container {
+      display: flex;
+      overflow-x: auto;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      max-width: 900px;
+      margin: 0 auto;
+      scrollbar-width: none;
+    }
+    .tab-container::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex: 0 0 auto;
+      padding: 13px 16px;
+      border: none;
+      background: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 行程項目卡片 */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background-color: var(--border);
+    }
+
+    .event-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 20px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 2px solid white;
+    }
+
+    .event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .event-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: white;
+    }
+
+    .tag-flight { background: #8e44ad; }
+    .tag-spot { background: var(--primary-light); }
+    .tag-food { background: var(--food-color); }
+    .tag-shop { background: #16a085; }
+    .tag-hotel { background: #27ae60; }
+    .tag-trans { background: #34495e; }
+
+    .event-time {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .event-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 4px 0 6px;
+    }
+
+    .event-body {
+      font-size: 0.88rem;
+      color: #4a5568;
+    }
+
+    .event-body p { margin-bottom: 4px; }
+
+    .recommend-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .recommend-food {
+      background-color: #fdf2e9;
+      border-left: 3px solid var(--food-color);
+      color: #7e3b08;
+    }
+
+    .recommend-shop {
+      background-color: #f4ecf7;
+      border-left: 3px solid var(--shop-color);
+      color: #512e5f;
+    }
+
+    .recommend-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: #ebf5fb;
+      color: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .checklist-item.done span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .guide-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .guide-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ebf5fb;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-item {
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+
+    .guide-item-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .guide-item-desc {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .table-container, .calc-card, .info-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f8fafc;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .calc-input-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .calc-input-group input, .calc-input-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .calc-result {
+      text-align: right;
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: var(--food-color);
+      margin-top: 10px;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 列印友善設定 */
+    @media print {
+      body { background: white; color: black; padding-bottom: 0; }
+      header, .action-bar, .tab-container, .weather-widget, .calc-card, .map-btn, .alert-banner { display: none !important; }
+      .tab-content { display: block !important; margin-bottom: 30px; page-break-after: always; }
+      .event-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>瀨戶內海家族奢華五日遊 ✈️🇯🇵🌊</h1>
+    <p>9/30 - 10/4 ｜ 家族專屬智慧互動手冊</p>
+    
+    <!-- 快捷按鈕列 -->
+    <div class="action-bar">
+      <button class="action-btn" onclick="shareTrip()"><i class="fa-solid fa-share-nodes"></i> 一鍵分享</button>
+      <button class="action-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> 匯出 PDF / 列印</button>
+      <button class="action-btn" onclick="resetProgress()"><i class="fa-solid fa-rotate-left"></i> 重置打卡進度</button>
+    </div>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- 天氣預報組件 -->
+    <div class="weather-widget">
+      <div class="weather-header">
+        <div class="weather-title">
+          <i class="fa-solid fa-cloud-sun"></i> 景點即時天氣預報
+        </div>
+        <button class="weather-refresh" onclick="fetchSelectedCityWeather()">
+          <i class="fa-solid fa-rotate-right"></i> 重新整理
+        </button>
+      </div>
+
+      <div class="weather-cities">
+        <button class="city-chip active" onclick="changeCity('matsuyama', this)">D1-2 松山 (道後)</button>
+        <button class="city-chip" onclick="changeCity('hiroshima', this)">D2-3 廣島市</button>
+        <button class="city-chip" onclick="changeCity('miyajima', this)">D3 宮島 (嚴島)</button>
+        <button class="city-chip" onclick="changeCity('onomichi', this)">D4 尾道</button>
+        <button class="city-chip" onclick="changeCity('kurashiki', this)">D4 倉敷</button>
+        <button class="city-chip" onclick="changeCity('takamatsu', this)">D4-5 高松</button>
+      </div>
+
+      <div class="weather-detail" id="weatherDisplay">
+        <div class="weather-main">
+          <i class="fa-solid fa-sun weather-icon-large" id="weatherIcon" style="color:#f39c12;"></i>
+          <div>
+            <div class="weather-temp" id="weatherTemp">-- °C</div>
+            <div class="weather-desc" id="weatherCondition">載入天氣中...</div>
+          </div>
+        </div>
+        <div class="weather-sub">
+          <div id="weatherLocation">松山 (道後溫泉)</div>
+          <div id="weatherRange">最高: --°C / 最低: --°C</div>
+          <div id="weatherRain">降雨機率: --%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 準時提醒 -->
+    <div class="alert-banner">
+      <strong>⚠️ 每日「發車」時間 09:00（是出發不是集合）</strong>[cite: 1]<br>
+      Ps. 遲到的晚餐就給你請囉，謝謝老闆[cite: 1]。🚗 包車行李空間最多 15 大，多餘建議帶行李袋[cite: 1]。
+    </div>
+
+  </div>
+
+  <!-- 導覽頁籤 -->
+  <nav class="tab-container">
+    <button class="tab-btn active" onclick="switchTab('day1')">Day 1 道後溫泉</button>
+    <button class="tab-btn" onclick="switchTab('day2')">Day 2 松山/廣島</button>
+    <button class="tab-btn" onclick="switchTab('day3')">Day 3 宮島/和平</button>
+    <button class="tab-btn" onclick="switchTab('day4')">Day 4 尾道/倉敷</button>
+    <button class="tab-btn" onclick="switchTab('day5')">Day 5 購物/返台</button>
+    <button class="tab-btn" onclick="switchTab('food-shop')">🍱 必吃＆必買清單</button>
+    <button class="tab-btn" onclick="switchTab('tickets')">🎫 門票試算</button>
+    <button class="tab-btn" onclick="switchTab('tips')">📌 行前指南</button>
+  </nav>
+
+  <div class="main-container">
+
+    <!-- Day 1 -->
+    <div id="day1" class="tab-content active">
+      <div class="timeline">
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-flight">航班出發</span>
+            <span class="event-time">07:00 / 08:40</span>
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d1_flight" onchange="toggleDone(this)">
+            <span class="event-title">星宇啟航！直奔神隱少女溫泉鄉[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>07:00 臺中機場國際線 Check-in[cite: 1]。</p>
+            <p>08:40 星宇航空 JX300 起飛，預計 12:20 抵達高松機場[cite: 1]。</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-trans">專車接送</span>
+            <span class="event-time">下午 (車程約 2 小時)</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d1_transfer" onchange="toggleDone(this)">
+            <span class="event-title">專車接送直奔松山道後[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>中途下車尿尿 + 買小東西上車吃 (15mins)[cite: 1]。</p>
+          </div>
+          <a href="https://maps.app.goo.gl/cFCJxCraEJU25jQN8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 休息點地圖</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">景點散策</span>
+            <span class="event-time">16:00 - 18:00</span>
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d1_dogo" onchange="toggleDone(this)">
+            <span class="event-title">道後溫泉本館（Dōgo Onsen Honkan）＆ 溫泉街[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>抵達後先至溫泉旅館放置行李[cite: 1]。牽著長輩與孩子漫步道後溫泉本館，百年木造《神隱少女》油屋原型大合照[cite: 1]！</p>
+            
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 道後溫泉街必吃美食推薦：</div>
+              • <strong>少爺糰子（坊っちゃん団子）</strong>：三色經典甜點（紅豆、白餡、抹茶）。<br>
+              • <strong>10 FACTORY 蜜柑汁專賣店</strong>：品嚐愛媛縣 3~5 種不同酸甜品種的蜜柑果汁評比杯。<br>
+              • <strong>蜜柑義式冰淇淋 / 蜜柑生乳捲</strong>：大人小孩皆愛的解渴甜點。
+            </div>
+
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 道後溫泉街必買推薦：</div>
+              • <strong>今治毛巾（伊織 本店）</strong>：日本頂級毛巾，觸感極為親膚柔軟，超適合買給全家與長輩。<br>
+              • <strong>愛媛蜜柑果醬 / 蜜柑酒</strong>：香氣濃郁的在地限定伴手禮。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/5iaoHXktjowxoGCNA?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 道後溫泉本館</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-food">精緻美饌</span>
+            <span class="event-time">18:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d1_dinner" onchange="toggleDone(this)">
+            <span class="event-title">溫泉旅館內享用「會席料理」[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>在旅館內享用精緻瀨戶內海海鮮與愛媛名產「鯛魚飯（たいめし）」，附專屬兒童餐[cite: 1]。</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-hotel">精選住宿</span>
+            <span class="event-time">住宿推薦</span>[cite: 1]
+          </div>
+          <div class="event-title">ホテル古湧園遥[cite: 1]</div>
+          <a href="https://maps.app.goo.gl/rGhd4T5EajMqsxyX6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>[cite: 1]
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div id="day2" class="tab-content">
+      <div class="timeline">
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">名城巡禮</span>
+            <span class="event-time">09:00 - 12:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d2_castle" onchange="toggleDone(this)">
+            <span class="event-title">松山城（Matsuyama-jō）[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>搭乘「單人空中索道椅（Lifts）」或纜車上山[cite: 1]。日本僅存 12 現存天守之一，遠眺瀨戶內海[cite: 1]。</p>
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 松山城山頂必吃：</div>
+              • <strong>伊予柑霜淇淋</strong>：山頂本丸廣場小憩時必嚐，果香微酸消暑。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/RABU1XzVV2QDEXWq8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 松山城位置</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-trans">景觀大橋</span>
+            <span class="event-time">12:15 - 16:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d2_bridge" onchange="toggleDone(this)">
+            <span class="event-title">島波海道大縱走 ＆ 來島海峽休息站[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>專車行駛自行車聖地「島波海道」，車程約 2.5 - 3 小時[cite: 1]。於來島海峽休息站停留 40 分鐘簡易覓食[cite: 1]。</p>
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 來島海峽休息站推薦：</div>
+              • <strong>伯方之鹽霜淇淋</strong>：鹹甜交織極具特色的海鹽冰淇淋。<br>
+              • <strong>今治特色叉燒半熟蛋飯 / 炸章魚天婦羅</strong>：快速便利又美味的熟食點心。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/vWwrX2Lb9P2H5smS6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 來島海峽休息站</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-food">家族聚餐</span>
+            <span class="event-time">20:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d2_bbq" onchange="toggleDone(this)">
+            <span class="event-title">包廂燒肉晚餐（杰結帳 👑）[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>方便女士購物行程～小孩部分請先於便利商店餵飽[cite: 1]。</p>
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 廣島八丁堀商圈購物推薦：</div>
+              • <strong>福屋百貨 / PARCO</strong>：日系品牌服飾、化妝品專櫃聚集地。<br>
+              • <strong>唐吉訶德 廣島八丁堀店</strong>：營業至深夜，採購日本零食、藥妝超齊全。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/EzxH5DC9g4diswvd6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 餐廳位置</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-hotel">精選住宿</span>
+            <span class="event-time">連住兩晚</span>
+          </div>
+          <div class="event-title">CANDEO HOTELS Hiroshima Hatchobori[cite: 1]</div>
+          <a href="https://maps.app.goo.gl/DuQSHhntHFmHjzs17?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店地圖</a>[cite: 1]
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div id="day3" class="tab-content">
+      <div class="timeline">
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">世界遺產</span>
+            <span class="event-time">09:00 - 12:30</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d3_shrine" onchange="toggleDone(this)">
+            <span class="event-title">宮島・嚴島神社（Itsukushima Jinja）[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>專車至宮島口碼頭搭渡輪前往[cite: 1]。看海上大鳥居與溫和宮島小鹿[cite: 1]。</p>
+          </div>
+          <a href="https://maps.app.goo.gl/AqmRWjP7bNddgaFe6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 宮島渡輪碼頭</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-food">在地午餐</span>
+            <span class="event-time">12:30 - 14:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d3_lunch" onchange="toggleDone(this)">
+            <span class="event-title">宮島表參道商店街美食＆採買[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 宮島必吃名物：</div>
+              • <strong>まめたぬき (Mametanuki)</strong>：陶罐烤星鰻飯，醬香濃郁肉質細嫩[cite: 1]。<br>
+              • <strong>現烤廣島牡蠣</strong>：大顆飽滿多汁，可選檸檬汁或醬油燒烤。<br>
+              • <strong>紅葉堂「炸紅葉饅頭 (揚げもみじ)」</strong>：外皮酥脆內餡綿密，推薦紅豆、卡士達口味[cite: 1]。<br>
+              • <strong>宮島特色「牡蠣咖哩麵包」</strong>：整顆大牡蠣包入濃郁咖哩內餡。
+            </div>
+
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 宮島必買伴手禮：</div>
+              • <strong>紅葉饅頭禮盒（藤い屋 / やまだ屋）</strong>：宮島代表性名產。<br>
+              • <strong>宮島木製開運飯勺（杓子）</strong>：祈求健康與家內安全的手工藝品。
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">歷史和平</span>
+            <span class="event-time">14:30 - 17:30</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d3_peace" onchange="toggleDone(this)">
+            <span class="event-title">廣島和平紀念公園・原爆圓頂館＋紙鶴塔[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>歷史教育景點，紙鶴塔頂樓可俯瞰全景並體驗投下祈福紙鶴[cite: 1]。</p>
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 紙鶴塔 1 樓商場推薦：</div>
+              • <strong>SOUVENIR SELECT 人氣伴手禮店</strong>：集合廣島各大名產（廣島檸檬蛋糕、瀨戶內檸檬花枝脆片）。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/zMvSYn5BWE6187FA6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 紙鶴塔位置</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">購物與晚餐</span>
+            <span class="event-time">晚上</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d3_night" onchange="toggleDone(this)">
+            <span class="event-title">紙屋町/本通商店街 自由採購 ＆ 晚餐[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 晚餐推薦（自由覓食）：</div>
+              • <strong>廣島燒村（お好み村）</strong>：集結數十家道地廣島燒老店（推薦「八昌」、「麗ちゃん」），滿滿高麗菜、炒麵與廣島牡蠣煎炒，香氣逼人[cite: 1]！
+            </div>
+
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 廣島市區必買推薦：</div>
+              • <strong>瀨戶田檸檬蛋糕（島ごころ）</strong>：廣島代表性伴手禮，檸檬清香濃郁。<br>
+              • <strong>Calbee 廣島限定沾汁沾麵風味蝦味先</strong>。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/2FJpcscudvFiZSLn7?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>[cite: 1]
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div id="day4" class="tab-content">
+      <div class="timeline">
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">文青山城</span>
+            <span class="event-time">09:00 - 12:30</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d4_onomichi" onchange="toggleDone(this)">
+            <span class="event-title">廣島出發 \ 尾道（Onomichi）千光寺文青散策[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>搭乘千光寺纜車俯瞰水道，下山漫步貓之細道[cite: 1]。</p>
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 尾道必吃文青甜點：</div>
+              • <strong>尾道布丁（おやつとやまねこ）</strong>：復古牛奶瓶裝布丁，淋上瀨戶內檸檬特製糖漿。<br>
+              • <strong>貓之細道 特色麵包店（ネコノテパン工場）</strong>：超隱密的可愛迷你麵包工坊[cite: 1]。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/8jETGSetLPNBPuSd8?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 千光寺纜車</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-food">在地午餐</span>
+            <span class="event-time">12:00 - 13:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d4_ramen" onchange="toggleDone(this)">
+            <span class="event-title">午餐自由覓食：尾道拉麵 / 尾道 WHARF[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 尾道午餐精選：</div>
+              • <strong>尾道拉麵（如：朱華園系或喰海）</strong>：以小魚乾熬製高湯、加入背脂醬油的道地風味[cite: 1]。<br>
+              • <strong>尾道 WHARF</strong>：港邊海鮮、生蠔與西式輕食料理[cite: 1]。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/GNciG2syz6NS54QT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-utensils"></i> 尾道 WHARF</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-spot">江戶水鄉</span>
+            <span class="event-time">13:30 - 17:00</span>
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d4_kurashiki" onchange="toggleDone(this)">
+            <span class="event-title">倉敷美觀地區 ＆ 兒島丹寧街[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>白壁宅邸、黑瓦與垂柳散策，可體驗人力遊船與特色街區[cite: 1]。</p>
+            
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 倉敷特色打卡美食：</div>
+              • <strong>丹寧藍色肉包＆藍色霜淇淋</strong>：拍照打卡人氣第一名，小孩超愛[cite: 1]！<br>
+              • <strong>岡山白桃/麝香葡萄水果聖代（くらしき桃子）</strong>：奢華鋪滿當季頂級岡山水果。
+            </div>
+
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 倉敷美觀必買推薦：</div>
+              • <strong>倉敷兒島丹寧（牛仔布）製品</strong>：丹寧包包、帽子、圍裙，耐用且極具質感[cite: 1]。<br>
+              • <strong>mt 紙膠帶（如竹堂）</strong>：日本紙膠帶發源地，文具控必買伴手禮。<br>
+              • <strong>岡山白桃果凍 / 晴王麝香葡萄夾心餅乾</strong>。
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/wr7DnhmdsC5LgLeq5?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-map-location-dot"></i> 倉敷美觀地區</a>[cite: 1]
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-trans">跨海夕陽</span>
+            <span class="event-time">17:00 - 18:30</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d4_sunset" onchange="toggleDone(this)">
+            <span class="event-title">跨越壯麗「瀨戶大橋」\ 抵達香川高松[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>行駛瀨戶中央自動車道，黃昏時刻在橋上欣賞瀨戶內海落日[cite: 1]。</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-food">香川名物</span>
+            <span class="event-time">19:00</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d4_dinner" onchange="toggleDone(this)">
+            <span class="event-title">高松商店街晚餐：骨付鳥 或 讚岐烏龍麵[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <div class="recommend-box recommend-food">
+              <div class="recommend-title"><i class="fa-solid fa-utensils"></i> 高松必吃名物推薦：</div>
+              • <strong>骨付鳥 一鶴（Ikkaku）</strong>：香川靈魂美食！大蒜胡椒醃製烤雞腿，分嫩雞（ひな）與嚼勁老雞（おや），配啤酒白飯一絕[cite: 1]！<br>
+              • <strong>手打讚岐烏龍麵（手打十段 うどんバカ一代）</strong>：招牌「奶油黑胡椒烏龍麵（釜バター）」，口感 Q 彈滑順[cite: 1]。
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-hotel">精選住宿</span>
+            <span class="event-time">住宿推薦</span>[cite: 1]
+          </div>
+          <div class="event-title">Daiwa Roynet Hotel Takamatsu[cite: 1]</div>
+          <a href="https://maps.app.goo.gl/7VyrBB446WwkS8nT6?g_st=ic" target="_blank" class="map-btn"><i class="fa-solid fa-hotel"></i> 飯店位置</a>[cite: 1]
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div id="day5" class="tab-content">
+      <div class="timeline">
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-shop">最後採買</span>
+            <span class="event-time">09:00 - 10:30</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d5_shop" onchange="toggleDone(this)">
+            <span class="event-title">高松丸龜町商店街最後採買衝刺[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <div class="recommend-box recommend-shop">
+              <div class="recommend-title"><i class="fa-solid fa-bag-shopping"></i> 高松丸龜町必買伴手禮：</div>
+              • <strong>讚岐生烏龍麵禮盒（石丸製麵 / 龜城庵）</strong>：附特調醬汁，回家自己煮也超彈牙！<br>
+              • <strong>灸饅頭（名物かまど）</strong>：香川經典黃餡和菓子。<br>
+              • <strong>和三盆糖</strong>：細緻如雪、入口即化的高級日本砂糖點心。<br>
+              • <strong>小豆島橄欖油保養品 / 橄欖麵</strong>。
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-header">
+            <span class="event-tag tag-flight">搭機返台</span>
+            <span class="event-time">10:30 / 13:20</span>[cite: 1]
+          </div>
+          <label class="checklist-item">
+            <input type="checkbox" id="check_d5_flight" onchange="toggleDone(this)">
+            <span class="event-title">高松機場 ✈️ 星宇航空 JX301 返台[cite: 1]</span>
+          </label>
+          <div class="event-body">
+            <p>10:30 前往機場，13:20 起飛返台，滿載而歸[cite: 1]！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🍱 必吃＆必買清單彙整頁籤 -->
+    <div id="food-shop" class="tab-content">
+      <h2 style="font-size:1.2rem; color:var(--primary); margin-bottom:12px;">瀨戶內海必吃名物 ＆ 必買伴手禮指南</h2>
+      
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>🍊 愛媛・松山 / 道後溫泉[cite: 1]</h3>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
+            <div class="guide-item-desc">• 宇和島鯛魚飯（生鯛魚片配蛋汁醬油）[cite: 1]<br>• 10 FACTORY 各品種蜜柑汁評比<br>• 少爺糰子、伊予柑霜淇淋</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
+            <div class="guide-item-desc">• 今治毛巾（伊織 本店）<br>• 一六甘太郎塔（蜜柑柚子蛋糕捲）<br>• 愛媛蜜柑果醬 / 蜜柑酒</div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <h3>🦪 廣島市 ＆ 宮島[cite: 1]</h3>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
+            <div class="guide-item-desc">• 廣島燒（廣島燒村）、廣島炸生蠔[cite: 1]<br>• まめたぬき 陶罐烤星鰻飯[cite: 1]<br>• 現炸紅葉饅頭（紅葉堂）[cite: 1]</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
+            <div class="guide-item-desc">• 瀨戶田檸檬蛋糕（島ごころ）<br>• 紅葉饅頭禮盒（藤い屋 / やまだ屋）<br>• 廣島熊野筆（頂級化妝刷/毛筆）</div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <h3>🐈 尾道 ＆ 倉敷美觀[cite: 1]</h3>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
+            <div class="guide-item-desc">• 尾道背脂小魚乾醬油拉麵[cite: 1]<br>• 尾道布丁（附檸檬糖漿）<br>• 兒島丹寧藍色肉包＆霜淇淋[cite: 1]<br>• 倉敷白桃/麝香葡萄聖代</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
+            <div class="guide-item-desc">• 倉敷兒島牛仔丹寧包包/配件[cite: 1]<br>• mt 倉敷和紙膠帶<br>• 岡山晴王麝香葡萄夾心餅乾</div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <h3>🍜 香川・高松[cite: 1]</h3>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-utensils" style="color:var(--food-color);"></i> 必吃名物：</div>
+            <div class="guide-item-desc">• 手打讚岐烏龍麵（釜バター）[cite: 1]<br>• 骨付鳥 一鶴（蒜香多汁烤雞腿）[cite: 1]</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-title"><i class="fa-solid fa-bag-shopping" style="color:var(--shop-color);"></i> 必買伴手禮：</div>
+            <div class="guide-item-desc">• 讚岐生烏龍麵伴手禮盒<br>• 香川和三盆糖 / 灸饅頭<br>• 小豆島頂級初榨橄欖油</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 門票試算 -->
+    <div id="tickets" class="tab-content">
+      <div class="table-container">
+        <h3 style="margin-bottom:10px; color:var(--primary);"><i class="fa-solid fa-ticket"></i> 景點票價參考一覽表[cite: 1]</h3>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">門票都現場買就好，買票的人決定何時跟大家收費 💰[cite: 1]</p>
+        <table>
+          <thead>
+            <tr>
+              <th>景點項目</th>
+              <th>負責人</th>
+              <th>大人 (12歲+)</th>
+              <th>小學 (6-12)</th>
+              <th>幼兒</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>D2 松山城索道椅/纜車來回[cite: 1]</td>
+              <td>小烏[cite: 1]</td>
+              <td>520 円[cite: 1]</td>
+              <td>260 円[cite: 1]</td>
+              <td>免費 (1大可帶2名)[cite: 1]</td>
+            </tr>
+            <tr>
+              <td>D2 松山城天守閣門票[cite: 1]</td>
+              <td>小烏[cite: 1]</td>
+              <td>520 円[cite: 1]</td>
+              <td>150 円[cite: 1]</td>
+              <td>免費[cite: 1]</td>
+            </tr>
+            <tr>
+              <td>D3 JR 宮島渡輪來回 (含訪問稅)[cite: 1]</td>
+              <td>良[cite: 1]</td>
+              <td>500 円[cite: 1]</td>
+              <td>200 円[cite: 1]</td>
+              <td>免費 (1大可帶2名)[cite: 1]</td>
+            </tr>
+            <tr>
+              <td>D3 嚴島神社參拜門票[cite: 1]</td>
+              <td>良[cite: 1]</td>
+              <td>300 円[cite: 1]</td>
+              <td>100 円 (中·小學)[cite: 1]</td>
+              <td>免費 (高中200円)[cite: 1]</td>
+            </tr>
+            <tr>
+              <td>D3 紙鶴塔 (15人以上團體門票)[cite: 1]</td>
+              <td>良[cite: 1]</td>
+              <td>2,100 円[cite: 1]</td>
+              <td>800 円[cite: 1]</td>
+              <td>500 円 (4歲以下)[cite: 1]</td>
+            </tr>
+            <tr>
+              <td>D4 尾道千光寺纜車來回[cite: 1]</td>
+              <td>Fly[cite: 1]</td>
+              <td>700 円[cite: 1]</td>
+              <td>350 円[cite: 1]</td>
+              <td>免費 (1大可帶1名)[cite: 1]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="calc-card">
+        <h3><i class="fa-solid fa-calculator"></i> 門票費用快速試算器</h3>
+        <div class="calc-grid">
+          <div class="calc-input-group">
+            <label>大人人數</label>
+            <input type="number" id="adultCount" value="10" min="0" oninput="calculateTickets()">
+          </div>
+          <div class="calc-input-group">
+            <label>小學生人數</label>
+            <input type="number" id="childCount" value="2" min="0" oninput="calculateTickets()">
+          </div>
+          <div class="calc-input-group">
+            <label>選擇景點項目</label>
+            <select id="spotSelect" onchange="calculateTickets()">
+              <option value="520,260">D2 松山城纜車 (520/260)</option>
+              <option value="520,150">D2 松山城天守閣 (520/150)</option>
+              <option value="500,200">D3 宮島渡輪來回 (500/200)</option>
+              <option value="300,100">D3 嚴島神社 (300/100)</option>
+              <option value="2100,800">D3 紙鶴塔團體 (2100/800)</option>
+              <option value="700,350">D4 尾道千光寺纜車 (700/350)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="totalResult">預估總費用：¥ 5,720 日圓</div>
+      </div>
+    </div>
+
+    <!-- 行前指南 -->
+    <div id="tips" class="tab-content">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-utensils"></i> 1. 餐廳包廂預約</h3>
+        <p>18 人的大團體在日本是不可能現場排隊進餐廳的（尤其是熱門拉麵店或燒肉）[cite: 1]。第一晚的溫泉旅館一定要連同晚餐一起訂；其餘午晚餐務必請包車公司或透過信用卡祕書提早預約包廂（個室），或分拆成 3 張 6 人桌[cite: 1]。</p>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-wheelchair"></i> 2. 推車與無障礙建議</h3>
+        <p>尾道的「貓之細道」與松山城天守閣內部階梯較陡，若有行動不便的長輩，尾道段建議在山頂展望台與山腳商店街活動即可，避免走中間的陡峭石階[cite: 1]。</p>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-water"></i> 3. 宮島潮汐查詢</h3>
+        <p>去嚴島神社前，可以先上網查當天的「潮汐表」[cite: 1]。如果剛好遇到退潮，全家人還可以一起走到大鳥居的腳底下摸摸它喔[cite: 1]！</p>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-id-card"></i> 4. 交通票券與隨身卡片</h3>
+        <p>因全程包車，市區內無須購買 JR Pass[cite: 1]。導遊隨車移動，每人只需準備一張 ICOCA / Suica（西瓜卡），方便自由活動或超商買東西使用[cite: 1]。</p>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-shirt"></i> 5. 穿著建議（9/30 - 10/4）</h3>
+        <p>正值初秋，白天氣溫舒適（約 20°C - 25°C），但海風較大，且道後溫泉與山上（如松山城）早晚溫差明顯[cite: 1]。建議採洋蔥式穿搭（短袖/薄長袖 + 防風薄外套），並準備好走的休閒鞋[cite: 1]。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 城市座標設定
+    const CITIES = {
+      matsuyama: { name: '松山 (道後溫泉)', lat: 33.8392, lon: 132.7656 },
+      hiroshima: { name: '廣島市中心', lat: 34.3853, lon: 132.4553 },
+      miyajima: { name: '宮島 (嚴島神社)', lat: 34.2960, lon: 132.3199 },
+      onomichi: { name: '尾道市 (千光寺)', lat: 34.4089, lon: 133.1951 },
+      kurashiki: { name: '倉敷美觀地區', lat: 34.5960, lon: 133.7712 },
+      takamatsu: { name: '香川高松市', lat: 34.3428, lon: 134.0466 }
+    };
+
+    let currentCityKey = 'matsuyama';
+
+    function decodeWMO(code) {
+      if (code === 0) return { desc: '晴朗無雲', icon: 'fa-sun', color: '#f39c12' };
+      if (code === 1 || code === 2) return { desc: '多雲時晴', icon: 'fa-cloud-sun', color: '#f1c40f' };
+      if (code === 3) return { desc: '陰天多雲', icon: 'fa-cloud', color: '#bdc3c7' };
+      if ([45, 48].includes(code)) return { desc: '有霧', icon: 'fa-smog', color: '#95a5a6' };
+      if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return { desc: '短暫陣雨', icon: 'fa-cloud-showers-heavy', color: '#3498db' };
+      if ([95, 96, 99].includes(code)) return { desc: '雷陣雨', icon: 'fa-bolt', color: '#e74c3c' };
+      return { desc: '舒適宜人', icon: 'fa-cloud-sun', color: '#f1c40f' };
+    }
+
+    async function fetchWeatherData(cityKey) {
+      const city = CITIES[cityKey];
+      document.getElementById('weatherCondition').innerText = '更新天氣中...';
+
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const currentTemp = Math.round(data.current.temperature_2m);
+        const weatherInfo = decodeWMO(data.current.weather_code);
+        const maxTemp = Math.round(data.daily.temperature_2m_max[0]);
+        const minTemp = Math.round(data.daily.temperature_2m_min[0]);
+        const rainProb = data.daily.precipitation_probability_max[0] ?? 10;
+
+        document.getElementById('weatherTemp').innerText = `${currentTemp} °C`;
+        document.getElementById('weatherCondition').innerText = weatherInfo.desc;
+        document.getElementById('weatherLocation').innerText = city.name;
+        document.getElementById('weatherRange').innerText = `最高: ${maxTemp}°C / 最低: ${minTemp}°C`;
+        document.getElementById('weatherRain').innerText = `降雨機率: ${rainProb}%`;
+
+        const iconEl = document.getElementById('weatherIcon');
+        iconEl.className = `fa-solid ${weatherInfo.icon} weather-icon-large`;
+        iconEl.style.color = weatherInfo.color;
+
+      } catch (err) {
+        document.getElementById('weatherTemp').innerText = `22 °C`;
+        document.getElementById('weatherCondition').innerText = `晴朗舒適 (預估)`;
+        document.getElementById('weatherRange').innerText = `最高: 25°C / 最低: 18°C`;
+        document.getElementById('weatherRain').innerText = `降雨機率: 10%`;
+      }
+    }
+
+    function changeCity(cityKey, btnEl) {
+      currentCityKey = cityKey;
+      document.querySelectorAll('.city-chip').forEach(el => el.classList.remove('active'));
+      btnEl.classList.add('active');
+      fetchWeatherData(cityKey);
+    }
+
+    function fetchSelectedCityWeather() {
+      fetchWeatherData(currentCityKey);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    // 打卡進度儲存 (LocalStorage)
+    function toggleDone(checkbox) {
+      const parent = checkbox.closest('.checklist-item');
+      if (checkbox.checked) {
+        parent.classList.add('done');
+      } else {
+        parent.classList.remove('done');
+      }
+      saveChecklist();
+    }
+
+    function saveChecklist() {
+      const state = {};
+      document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+        if (box.id) {
+          state[box.id] = box.checked;
+        }
+      });
+      localStorage.setItem('seto_trip_checklist', JSON.stringify(state));
+    }
+
+    function loadChecklist() {
+      const saved = localStorage.getItem('seto_trip_checklist');
+      if (!saved) return;
+      const state = JSON.parse(saved);
+      for (const [id, checked] of Object.entries(state)) {
+        const box = document.getElementById(id);
+        if (box) {
+          box.checked = checked;
+          const parent = box.closest('.checklist-item');
+          if (checked && parent) parent.classList.add('done');
+        }
+      }
+    }
+
+    function resetProgress() {
+      if (confirm('確定要重置所有打卡進度嗎？')) {
+        localStorage.removeItem('seto_trip_checklist');
+        document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+          box.checked = false;
+          const parent = box.closest('.checklist-item');
+          if (parent) parent.classList.remove('done');
+        });
+      }
+    }
+
+    // 一鍵分享
+    function shareTrip() {
+      if (navigator.share) {
+        navigator.share({
+          title: '瀨戶內海家族奢華五日遊✈️🇯🇵🌊',
+          text: '這是我們的瀨戶內海行程手冊與美食購物清單！',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('網頁連結已複製到剪貼簿，可直接貼到家族 LINE 群組！');
+      }
+    }
+
+    function calculateTickets() {
+      const adults = parseInt(document.getElementById('adultCount').value) || 0;
+      const children = parseInt(document.getElementById('childCount').value) || 0;
+      const [adultPrice, childPrice] = document.getElementById('spotSelect').value.split(',').map(Number);
+      
+      const total = (adults * adultPrice) + (children * childPrice);
+      document.getElementById('totalResult').innerText = `預估總費用：¥ ${total.toLocaleString()} 日圓`;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchWeatherData('matsuyama');
+      loadChecklist();
+    });
+  </script>
+</body>
+</html>
